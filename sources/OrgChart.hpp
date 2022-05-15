@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 namespace ariel {
@@ -16,10 +17,11 @@ namespace ariel {
 
             class level_order_iterator {
                 OrgChart* current;
+                queue<OrgChart> que;
                 public:
                     bool operator==(const level_order_iterator &it) const;
                     bool operator!=(const level_order_iterator &it) const;
-                    string operator*();
+                    OrgChart operator*();
                     level_order_iterator operator++();
                     level_order_iterator operator++(int postfix_flag);
                     OrgChart* operator->();
@@ -27,10 +29,11 @@ namespace ariel {
 
             class reverse_order_iterator {
                 OrgChart* current;
+                queue<OrgChart> que;
                 public:
                     bool operator==(const reverse_order_iterator &it) const;
                     bool operator!=(const reverse_order_iterator &it) const;
-                    string operator*();
+                    OrgChart operator*();
                     reverse_order_iterator operator++();
                     reverse_order_iterator operator++(int postfix_flag);
                     OrgChart* operator->();
@@ -38,10 +41,11 @@ namespace ariel {
 
             class preorder_iterator {
                 OrgChart* current;
+                queue<OrgChart> que;
                 public:
                     bool operator==(const preorder_iterator &it) const;
                     bool operator!=(const preorder_iterator &it) const;
-                    string operator*();
+                    OrgChart operator*();
                     preorder_iterator operator++();
                     preorder_iterator operator++(int postfix_flag);
                     OrgChart* operator->();

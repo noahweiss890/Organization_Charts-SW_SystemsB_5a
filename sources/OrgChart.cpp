@@ -3,13 +3,20 @@ using namespace ariel;
 
 namespace ariel {
     OrgChart OrgChart::add_root(string root) {
-        OrgChart bla;
-        return bla;
+        this->position = root;
+        return *this;
     }
 
     OrgChart OrgChart::add_sub(string sup, string sub) {
-        OrgChart bla;
-        return bla;
+        OrgChart oc;
+        oc.position = sub;
+        for(auto worker : *this) {
+            if(worker.position == sup) {
+                worker.subs.push_back(oc);
+                return *this;
+            }
+        }
+        throw invalid_argument(sup + " does not exist on the chart!");
     }
 
     size_t OrgChart::size() {
@@ -24,8 +31,9 @@ namespace ariel {
         return true;
     }
 
-    string OrgChart::level_order_iterator::operator*() {
-        return "BLA";
+    OrgChart OrgChart::level_order_iterator::operator*() {
+        OrgChart bla;
+        return bla;
     }
 
     OrgChart::level_order_iterator OrgChart::level_order_iterator::operator++() {
@@ -51,8 +59,9 @@ namespace ariel {
         return true;
     }
 
-    string OrgChart::reverse_order_iterator::operator*() {
-        return "BLA";
+    OrgChart OrgChart::reverse_order_iterator::operator*() {
+        OrgChart bla;
+        return bla;
     }
 
     OrgChart::reverse_order_iterator OrgChart::reverse_order_iterator::operator++() {
@@ -78,8 +87,9 @@ namespace ariel {
         return true;
     }
 
-    string OrgChart::preorder_iterator::operator*() {
-        return "BLA";
+    OrgChart OrgChart::preorder_iterator::operator*() {
+        OrgChart bla;
+        return bla;
     }
 
     OrgChart::preorder_iterator OrgChart::preorder_iterator::operator++() {
