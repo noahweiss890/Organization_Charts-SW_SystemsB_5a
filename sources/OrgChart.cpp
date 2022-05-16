@@ -25,10 +25,6 @@ namespace ariel {
         // throw invalid_argument(sup + " does not exist on the chart!");
     }
 
-    size_t OrgChart::size() {
-        return 0;
-    }
-
     bool OrgChart::level_order_iterator::operator==(const level_order_iterator &it) const {
         return true;
     }
@@ -37,24 +33,22 @@ namespace ariel {
         return true;
     }
 
-    OrgChart OrgChart::level_order_iterator::operator*() {
-        OrgChart bla;
-        return bla;
+    string& OrgChart::level_order_iterator::operator*() const {
+        return this->current->position;
     }
 
-    OrgChart::level_order_iterator OrgChart::level_order_iterator::operator++() {
+    OrgChart::level_order_iterator& OrgChart::level_order_iterator::operator++() {
         OrgChart::level_order_iterator bla;
         return bla;
     }
 
-    OrgChart::level_order_iterator OrgChart::level_order_iterator::operator++(int postfix_flag) {
+    const OrgChart::level_order_iterator OrgChart::level_order_iterator::operator++(int postfix_flag) {
         OrgChart::level_order_iterator bla;
         return bla;
     }
 
-    OrgChart* OrgChart::level_order_iterator::operator->() {
-        OrgChart* bla;
-        return bla;
+    string* OrgChart::level_order_iterator::operator->() const {
+        return &(this->current->position);
     }
 
     bool OrgChart::reverse_order_iterator::operator==(const reverse_order_iterator &it) const {
@@ -65,24 +59,22 @@ namespace ariel {
         return true;
     }
 
-    OrgChart OrgChart::reverse_order_iterator::operator*() {
-        OrgChart bla;
-        return bla;
+    string& OrgChart::reverse_order_iterator::operator*() const {
+        return this->current->position;
     }
 
-    OrgChart::reverse_order_iterator OrgChart::reverse_order_iterator::operator++() {
+    OrgChart::reverse_order_iterator& OrgChart::reverse_order_iterator::operator++() {
         OrgChart::reverse_order_iterator bla;
         return bla;
     }
 
-    OrgChart::reverse_order_iterator OrgChart::reverse_order_iterator::operator++(int postfix_flag) {
+    const OrgChart::reverse_order_iterator OrgChart::reverse_order_iterator::operator++(int postfix_flag) {
         OrgChart::reverse_order_iterator bla;
         return bla;
     }
 
-    OrgChart* OrgChart::reverse_order_iterator::operator->() {
-        OrgChart* bla;
-        return bla;
+    string* OrgChart::reverse_order_iterator::operator->() const {
+        return &(this->current->position);
     }
 
     bool OrgChart::preorder_iterator::operator==(const preorder_iterator &it) const {
@@ -93,29 +85,26 @@ namespace ariel {
         return true;
     }
 
-    OrgChart OrgChart::preorder_iterator::operator*() {
-        OrgChart bla;
-        return bla;
+    string& OrgChart::preorder_iterator::operator*() const {
+        return this->current->position;
     }
 
-    OrgChart::preorder_iterator OrgChart::preorder_iterator::operator++() {
+    OrgChart::preorder_iterator& OrgChart::preorder_iterator::operator++() {
         OrgChart::preorder_iterator bla;
         return bla;
     }
 
-    OrgChart::preorder_iterator OrgChart::preorder_iterator::operator++(int postfix_flag) {
+    const OrgChart::preorder_iterator OrgChart::preorder_iterator::operator++(int postfix_flag) {
         OrgChart::preorder_iterator bla;
         return bla;
     }
 
-    OrgChart* OrgChart::preorder_iterator::operator->() {
-        OrgChart* bla;
-        return bla;
+    string* OrgChart::preorder_iterator::operator->() const {
+        return &(this->current->position);
     }
 
     OrgChart::level_order_iterator OrgChart::begin() {
-        OrgChart::level_order_iterator bla;
-        return bla;
+        return OrgChart::level_order_iterator(this);
     }
 
     OrgChart::level_order_iterator OrgChart::end() {

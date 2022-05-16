@@ -14,42 +14,47 @@ namespace ariel {
             string get_position();
             OrgChart add_root(string root);
             OrgChart add_sub(string sup, string sub);
-            size_t size();
 
             class level_order_iterator {
-                OrgChart* current;
-                // queue<OrgChart> que;
+                queue<OrgChart> que;
                 public:
+                    level_order_iterator(OrgChart* ptr) {
+                        que.push(*ptr);
+                    }
                     bool operator==(const level_order_iterator &it) const;
                     bool operator!=(const level_order_iterator &it) const;
-                    OrgChart operator*();
-                    level_order_iterator operator++();
-                    level_order_iterator operator++(int postfix_flag);
-                    OrgChart* operator->();
+                    string& operator*() const;
+                    level_order_iterator& operator++();
+                    const level_order_iterator operator++(int postfix_flag);
+                    string* operator->() const;
             };
 
             class reverse_order_iterator {
-                OrgChart* current;
-                // queue<OrgChart> que;
+                queue<OrgChart> que;
                 public:
+                    reverse_order_iterator(OrgChart* ptr) {
+                        que.push(*ptr);
+                    }
                     bool operator==(const reverse_order_iterator &it) const;
                     bool operator!=(const reverse_order_iterator &it) const;
-                    OrgChart operator*();
-                    reverse_order_iterator operator++();
-                    reverse_order_iterator operator++(int postfix_flag);
-                    OrgChart* operator->();
+                    string& operator*() const;
+                    reverse_order_iterator& operator++();
+                    const reverse_order_iterator operator++(int postfix_flag);
+                    string* operator->() const;
             };
 
             class preorder_iterator {
-                OrgChart* current;
-                // queue<OrgChart> que;
+                queue<OrgChart> que;
                 public:
+                    preorder_iterator(OrgChart* ptr) {
+                        que.push(*ptr);
+                    }
                     bool operator==(const preorder_iterator &it) const;
                     bool operator!=(const preorder_iterator &it) const;
-                    OrgChart operator*();
-                    preorder_iterator operator++();
-                    preorder_iterator operator++(int postfix_flag);
-                    OrgChart* operator->();
+                    string& operator*() const;
+                    preorder_iterator& operator++();
+                    const preorder_iterator operator++(int postfix_flag);
+                    string* operator->() const;
             };
 
             level_order_iterator begin();

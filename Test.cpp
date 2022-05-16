@@ -9,18 +9,15 @@ using namespace ariel;
 TEST_CASE("checking add_root and add_sub ") {
     OrgChart oc;
     oc.add_root("Rick");
-    // cout << "working till here 1" << endl;
     CHECK(oc.get_position() == "Rick");
-    // cout << "working till here 2" << endl;
     oc.add_root("Morty");
-    // cout << "working till here 3" << endl;
     CHECK(oc.get_position() == "Morty");
 
     oc.add_sub("Morty", "Jessica");
     auto it = oc.begin_level_order();
-    CHECK((*it).get_position() == "Morty");
+    CHECK(*it == "Morty");
     ++it;
-    CHECK((*it).get_position() == "Jessica");
+    CHECK(*it == "Jessica");
 }
 
 TEST_CASE("checking level order") {
@@ -34,19 +31,19 @@ TEST_CASE("checking level order") {
     .add_sub("Morty", "Jessica");
 
     auto it = oc.begin_level_order();
-    CHECK((*it).get_position() == "Rick");
+    CHECK(*it == "Rick");
     ++it;
-    CHECK((*it).get_position() == "Beth");
+    CHECK(*it == "Beth");
     ++it;
-    CHECK((*it).get_position() == "Jerry");
+    CHECK(*it == "Jerry");
     ++it;
-    CHECK((*it).get_position() == "Morty");
+    CHECK(*it == "Morty");
     ++it;
-    CHECK((*it).get_position() == "Summer");
+    CHECK(*it == "Summer");
     ++it;
-    CHECK((*it).get_position() == "Mr. Meeseeks");
+    CHECK(*it == "Mr. Meeseeks");
     ++it;
-    CHECK((*it).get_position() == "Jessica");
+    CHECK(*it == "Jessica");
     
     CHECK(it == oc.end_level_order());
 }
@@ -62,19 +59,19 @@ TEST_CASE("checking reverse order") {
     .add_sub("Morty", "Jessica");
 
     auto it = oc.begin_reverse_order();
-    CHECK((*it).get_position() == "Mr. Meeseeks");
+    CHECK(*it == "Mr. Meeseeks");
     ++it;
-    CHECK((*it).get_position() == "Jessica");
+    CHECK(*it == "Jessica");
     ++it;
-    CHECK((*it).get_position() == "Morty");
+    CHECK(*it == "Morty");
     ++it;
-    CHECK((*it).get_position() == "Summer");
+    CHECK(*it == "Summer");
     ++it;
-    CHECK((*it).get_position() == "Beth");
+    CHECK(*it == "Beth");
     ++it;
-    CHECK((*it).get_position() == "Jerry");
+    CHECK(*it == "Jerry");
     ++it;
-    CHECK((*it).get_position() == "Rick");
+    CHECK(*it == "Rick");
     
     CHECK(it == oc.reverse_order());
 }
@@ -90,19 +87,19 @@ TEST_CASE("checking preorder") {
     .add_sub("Morty", "Jessica");
 
     auto it = oc.begin_preorder();
-    CHECK((*it).get_position() == "Rick");
+    CHECK(*it == "Rick");
     ++it;
-    CHECK((*it).get_position() == "Beth");
+    CHECK(*it == "Beth");
     ++it;
-    CHECK((*it).get_position() == "Morty");
+    CHECK(*it == "Morty");
     ++it;
-    CHECK((*it).get_position() == "Mr. Meeseeks");
+    CHECK(*it == "Mr. Meeseeks");
     ++it;
-    CHECK((*it).get_position() == "Jessica");
+    CHECK(*it == "Jessica");
     ++it;
-    CHECK((*it).get_position() == "Summer");
+    CHECK(*it == "Summer");
     ++it;
-    CHECK((*it).get_position() == "Jerry");
+    CHECK(*it == "Jerry");
     
     CHECK(it == oc.end_preorder());
 }
