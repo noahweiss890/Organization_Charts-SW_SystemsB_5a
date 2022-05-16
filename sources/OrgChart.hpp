@@ -11,13 +11,14 @@ namespace ariel {
         string position;
         vector<OrgChart> subs;
         public:
+            string get_position();
             OrgChart add_root(string root);
             OrgChart add_sub(string sup, string sub);
             size_t size();
 
             class level_order_iterator {
                 OrgChart* current;
-                queue<OrgChart> que;
+                // queue<OrgChart> que;
                 public:
                     bool operator==(const level_order_iterator &it) const;
                     bool operator!=(const level_order_iterator &it) const;
@@ -29,7 +30,7 @@ namespace ariel {
 
             class reverse_order_iterator {
                 OrgChart* current;
-                queue<OrgChart> que;
+                // queue<OrgChart> que;
                 public:
                     bool operator==(const reverse_order_iterator &it) const;
                     bool operator!=(const reverse_order_iterator &it) const;
@@ -41,7 +42,7 @@ namespace ariel {
 
             class preorder_iterator {
                 OrgChart* current;
-                queue<OrgChart> que;
+                // queue<OrgChart> que;
                 public:
                     bool operator==(const preorder_iterator &it) const;
                     bool operator!=(const preorder_iterator &it) const;

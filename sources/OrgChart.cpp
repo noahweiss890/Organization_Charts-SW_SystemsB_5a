@@ -2,6 +2,11 @@
 using namespace ariel;
 
 namespace ariel {
+
+    string OrgChart::get_position() {
+        return this->position;
+    }
+
     OrgChart OrgChart::add_root(string root) {
         this->position = root;
         return *this;
@@ -9,14 +14,15 @@ namespace ariel {
 
     OrgChart OrgChart::add_sub(string sup, string sub) {
         OrgChart oc;
-        oc.position = sub;
-        for(auto worker : *this) {
-            if(worker.position == sup) {
-                worker.subs.push_back(oc);
-                return *this;
-            }
-        }
-        throw invalid_argument(sup + " does not exist on the chart!");
+        return oc;
+        // oc.position = sub;
+        // for(auto worker : *this) {
+        //     if(worker.position == sup) {
+        //         worker.subs.push_back(oc);
+        //         return *this;
+        //     }
+        // }
+        // throw invalid_argument(sup + " does not exist on the chart!");
     }
 
     size_t OrgChart::size() {
