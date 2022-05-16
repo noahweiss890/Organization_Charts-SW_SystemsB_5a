@@ -18,6 +18,8 @@ TEST_CASE("checking add_root and add_sub ") {
     CHECK(*it == "Morty");
     ++it;
     CHECK(*it == "Jessica");
+
+    CHECK_THROWS(oc.add_sub("Steve", "Jobs"));
 }
 
 TEST_CASE("checking level order") {
