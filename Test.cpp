@@ -15,9 +15,9 @@ TEST_CASE("checking add_root and add_sub ") {
 
     oc.add_sub("Morty", "Jessica");
     auto it = oc.begin_level_order();
-    CHECK(*it == "Morty");
+    CHECK((*it).get_position() == "Morty");
     ++it;
-    CHECK(*it == "Jessica");
+    CHECK((*it).get_position() == "Jessica");
 
     CHECK_THROWS(oc.add_sub("Steve", "Jobs"));
 }
@@ -33,20 +33,20 @@ TEST_CASE("checking level order") {
     .add_sub("Morty", "Jessica");
 
     auto it = oc.begin_level_order();
-    CHECK(*it == "Rick");
+    CHECK((*it).get_position() == "Rick");
     ++it;
-    CHECK(*it == "Beth");
+    CHECK((*it).get_position() == "Beth");
     ++it;
-    CHECK(*it == "Jerry");
+    CHECK((*it).get_position() == "Jerry");
     ++it;
-    CHECK(*it == "Morty");
+    CHECK((*it).get_position() == "Morty");
     ++it;
-    CHECK(*it == "Summer");
+    CHECK((*it).get_position() == "Summer");
     ++it;
-    CHECK(*it == "Mr. Meeseeks");
+    CHECK((*it).get_position() == "Mr. Meeseeks");
     ++it;
-    CHECK(*it == "Jessica");
-    
+    CHECK((*it).get_position() == "Jessica");
+    ++it;
     CHECK(it == oc.end_level_order());
 }
 
@@ -61,20 +61,20 @@ TEST_CASE("checking reverse order") {
     .add_sub("Morty", "Jessica");
 
     auto it = oc.begin_reverse_order();
-    CHECK(*it == "Mr. Meeseeks");
+    CHECK((*it).get_position() == "Mr. Meeseeks");
     ++it;
-    CHECK(*it == "Jessica");
+    CHECK((*it).get_position() == "Jessica");
     ++it;
-    CHECK(*it == "Morty");
+    CHECK((*it).get_position() == "Morty");
     ++it;
-    CHECK(*it == "Summer");
+    CHECK((*it).get_position() == "Summer");
     ++it;
-    CHECK(*it == "Beth");
+    CHECK((*it).get_position() == "Beth");
     ++it;
-    CHECK(*it == "Jerry");
+    CHECK((*it).get_position() == "Jerry");
     ++it;
-    CHECK(*it == "Rick");
-    
+    CHECK((*it).get_position() == "Rick");
+    ++it;
     CHECK(it == oc.reverse_order());
 }
 
@@ -89,19 +89,19 @@ TEST_CASE("checking preorder") {
     .add_sub("Morty", "Jessica");
 
     auto it = oc.begin_preorder();
-    CHECK(*it == "Rick");
+    CHECK((*it).get_position() == "Rick");
     ++it;
-    CHECK(*it == "Beth");
+    CHECK((*it).get_position() == "Beth");
     ++it;
-    CHECK(*it == "Morty");
+    CHECK((*it).get_position() == "Morty");
     ++it;
-    CHECK(*it == "Mr. Meeseeks");
+    CHECK((*it).get_position() == "Mr. Meeseeks");
     ++it;
-    CHECK(*it == "Jessica");
+    CHECK((*it).get_position() == "Jessica");
     ++it;
-    CHECK(*it == "Summer");
+    CHECK((*it).get_position() == "Summer");
     ++it;
-    CHECK(*it == "Jerry");
-    
+    CHECK((*it).get_position() == "Jerry");
+    ++it;
     CHECK(it == oc.end_preorder());
 }
