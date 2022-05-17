@@ -34,7 +34,6 @@ namespace ariel {
                             que.pop();
                         }
                     }
-                    ~level_order_iterator() {}
                     bool operator==(const level_order_iterator &it) const;
                     bool operator!=(const level_order_iterator &it) const;
                     OrgChart& operator*() const;
@@ -59,7 +58,6 @@ namespace ariel {
                             que.pop();
                         }
                     }
-                    ~reverse_order_iterator() {}
                     bool operator==(const reverse_order_iterator &it) const;
                     bool operator!=(const reverse_order_iterator &it) const;
                     OrgChart& operator*() const;
@@ -84,7 +82,6 @@ namespace ariel {
                             que.pop();
                         }
                     }
-                    ~preorder_iterator() {}
                     bool operator==(const preorder_iterator &it) const;
                     bool operator!=(const preorder_iterator &it) const;
                     OrgChart& operator*() const;
